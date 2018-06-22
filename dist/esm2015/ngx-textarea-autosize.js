@@ -23,10 +23,12 @@ class AutosizeDirective {
      */
     resize() {
         const /** @type {?} */ textarea = /** @type {?} */ (this.elem.nativeElement);
+        // Calculate border height which is not included in scrollHeight
+        const /** @type {?} */ borderHeight = textarea.offsetHeight - textarea.clientHeight;
         // Reset textarea height to auto that correctly calculate the new height
         textarea.style.height = 'auto';
         // Set new height
-        textarea.style.height = `${textarea.scrollHeight}px`;
+        textarea.style.height = `${textarea.scrollHeight + borderHeight}px`;
     }
 }
 AutosizeDirective.decorators = [
@@ -40,10 +42,10 @@ AutosizeDirective.decorators = [
 ];
 /** @nocollapse */
 AutosizeDirective.ctorParameters = () => [
-    { type: ElementRef, },
+    { type: ElementRef }
 ];
 AutosizeDirective.propDecorators = {
-    "resize": [{ type: HostListener, args: ['input',] },],
+    resize: [{ type: HostListener, args: ['input',] }]
 };
 
 /**
@@ -59,8 +61,6 @@ TextareaAutosizeModule.decorators = [
                 exports: [AutosizeDirective]
             },] },
 ];
-/** @nocollapse */
-TextareaAutosizeModule.ctorParameters = () => [];
 
 /**
  * @fileoverview added by tsickle

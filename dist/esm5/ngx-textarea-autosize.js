@@ -10,8 +10,9 @@ var AutosizeDirective = /** @class */ (function () {
     };
     AutosizeDirective.prototype.resize = function () {
         var textarea = (this.elem.nativeElement);
+        var borderHeight = textarea.offsetHeight - textarea.clientHeight;
         textarea.style.height = 'auto';
-        textarea.style.height = textarea.scrollHeight + "px";
+        textarea.style.height = textarea.scrollHeight + borderHeight + "px";
     };
     return AutosizeDirective;
 }());
@@ -25,10 +26,10 @@ AutosizeDirective.decorators = [
             },] },
 ];
 AutosizeDirective.ctorParameters = function () { return [
-    { type: ElementRef, },
+    { type: ElementRef }
 ]; };
 AutosizeDirective.propDecorators = {
-    "resize": [{ type: HostListener, args: ['input',] },],
+    resize: [{ type: HostListener, args: ['input',] }]
 };
 var TextareaAutosizeModule = /** @class */ (function () {
     function TextareaAutosizeModule() {
@@ -42,7 +43,6 @@ TextareaAutosizeModule.decorators = [
                 exports: [AutosizeDirective]
             },] },
 ];
-TextareaAutosizeModule.ctorParameters = function () { return []; };
 
 export { TextareaAutosizeModule, AutosizeDirective as ɵa };
 //# sourceMappingURL=ngx-textarea-autosize.js.map

@@ -1,6 +1,6 @@
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common')) :
-	typeof define === 'function' && define.amd ? define(['exports', '@angular/core', '@angular/common'], factory) :
+	typeof define === 'function' && define.amd ? define('ngx-textarea-autosize', ['exports', '@angular/core', '@angular/common'], factory) :
 	(factory((global['ngx-textarea-autosize'] = {}),global.ng.core,global.ng.common));
 }(this, (function (exports,core,common) { 'use strict';
 
@@ -13,8 +13,9 @@ var AutosizeDirective = /** @class */ (function () {
     };
     AutosizeDirective.prototype.resize = function () {
         var textarea = (this.elem.nativeElement);
+        var borderHeight = textarea.offsetHeight - textarea.clientHeight;
         textarea.style.height = 'auto';
-        textarea.style.height = textarea.scrollHeight + "px";
+        textarea.style.height = textarea.scrollHeight + borderHeight + "px";
     };
     return AutosizeDirective;
 }());
@@ -28,10 +29,10 @@ AutosizeDirective.decorators = [
             },] },
 ];
 AutosizeDirective.ctorParameters = function () { return [
-    { type: core.ElementRef, },
+    { type: core.ElementRef }
 ]; };
 AutosizeDirective.propDecorators = {
-    "resize": [{ type: core.HostListener, args: ['input',] },],
+    resize: [{ type: core.HostListener, args: ['input',] }]
 };
 var TextareaAutosizeModule = /** @class */ (function () {
     function TextareaAutosizeModule() {
@@ -45,7 +46,6 @@ TextareaAutosizeModule.decorators = [
                 exports: [AutosizeDirective]
             },] },
 ];
-TextareaAutosizeModule.ctorParameters = function () { return []; };
 
 exports.TextareaAutosizeModule = TextareaAutosizeModule;
 exports.ɵa = AutosizeDirective;
