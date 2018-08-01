@@ -1,5 +1,5 @@
 import {
-  AfterViewInit,
+  AfterViewChecked,
   Directive,
   ElementRef,
   HostListener
@@ -12,13 +12,13 @@ import {
     'style': 'overflow: hidden'
   }
 })
-export class AutosizeDirective implements AfterViewInit {
+export class AutosizeDirective implements AfterViewChecked {
 
   constructor(
     private elem: ElementRef
   ) { }
 
-  public ngAfterViewInit() {
+  public ngAfterViewChecked() {
     this.resize();
   }
 
