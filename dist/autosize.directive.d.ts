@@ -1,7 +1,7 @@
-import { AfterViewInit, ElementRef } from '@angular/core';
-export declare class AutosizeDirective implements AfterViewInit {
+import { AfterViewChecked, ElementRef } from '@angular/core';
+export declare class AutosizeDirective implements AfterViewChecked {
     private elem;
     constructor(elem: ElementRef);
-    ngAfterViewInit(): void;
+    ngAfterViewChecked(): void;
     private resize();
 }

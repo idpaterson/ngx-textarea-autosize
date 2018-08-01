@@ -5,7 +5,7 @@ var AutosizeDirective = /** @class */ (function () {
     function AutosizeDirective(elem) {
         this.elem = elem;
     }
-    AutosizeDirective.prototype.ngAfterViewInit = function () {
+    AutosizeDirective.prototype.ngAfterViewChecked = function () {
         this.resize();
     };
     AutosizeDirective.prototype.resize = function () {

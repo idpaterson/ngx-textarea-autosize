@@ -15,7 +15,7 @@ class AutosizeDirective {
     /**
      * @return {?}
      */
-    ngAfterViewInit() {
+    ngAfterViewChecked() {
         this.resize();
     }
     /**
